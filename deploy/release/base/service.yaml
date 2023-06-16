@@ -4,10 +4,10 @@ metadata:
   name: my-nginx
   namespace: k8s
   labels:
-    run: my-nginx
+    app: nginx-svc
 spec:
   ports:
   - port: 80
     protocol: TCP
   selector:
-    run: my-nginx
+    app: nginx
