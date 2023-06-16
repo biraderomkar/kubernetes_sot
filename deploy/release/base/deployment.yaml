@@ -2,21 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-nginx
-  namespace: k8s
-  labels:
-    app: nginx
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      run: my-nginx
+  replicas: 2
   template:
     metadata:
       labels:
-        app: nginx
+        run: my-nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
+      - name: my-nginx
+        image: nginx
         ports:
         - containerPort: 80
